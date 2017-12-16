@@ -61,6 +61,10 @@ we_crea_admin_caract_edit:
     path: /caract/edit
     defaults: {_controller: "WeCreaBundle:Works:editCaract"}
 
+we_crea_admin_image_alt_edit:
+    path: /image/edit
+    defaults: {_controller: "WeCreaBundle:Works:editImageAlt"}
+
 # ------ Carrousel ROUT
 we_crea_admin_carrousel_edition:
     path: /carrousel/edition
