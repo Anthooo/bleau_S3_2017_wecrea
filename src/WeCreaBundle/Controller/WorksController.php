@@ -248,6 +248,25 @@ class WorksController extends Controller
     	return new Response('ok');
     }
 
+    /* Permet la modification de la légende des photos */
+    public function editImageAltAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $idImage = $request->request->get('idImage');
+        $newAltImage = $request->request->get('imageAlt');
+
+        $image = $em->getRepository(Images::class)->findOneBy(array('id' => $idImage));
+
+        $image->setAlt($newAltImage);
+
+        $em->flush();
+
+        return new Response('ok');
+    }
+
+
+
+
     public function deleteWorkImageAjaxAction(Request $request){
         $em = $this->getDoctrine()->getManager();
 

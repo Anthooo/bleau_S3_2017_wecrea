@@ -110,6 +110,20 @@
             {% for image in work.images %}
                 <div class="input-field col s12">
                     <img src="{{ asset('images/'~image.url) }}"/>
+                    {# Zone modification du champs alt#}
+                    <p>
+                        légende image et/ou mots clés :
+                        <br>
+                        <input class="editImageAlt"
+                               id="imageAlt_{{ image.id }}"
+                               type="text"
+                               value="{{ image.alt }}">
+
+                    </p>
+                    <button class="editImageAltButton btn waves-effect waves-light left blue" data-idimage="{{ image.id }}">
+                        Modifier la légende de la photo
+                    </button>
+                    {# Fin zone modification du champs alt#}
                     <input type="hidden" class="idImg" value="{{ image.url }}"/>
                 </div>
                 <div class="col s12">
@@ -123,6 +137,8 @@
 
         {{ form_start(image_form, {'attr' : {'id' : 'add-image-form'}} ) }}
             <div class="row">
+                <h5>Ajouter une nouvelle photographie</h5>
+
                 <div class="input-field">
                     {{ form_label(image_form.alt, "légende image et/ou mots clés") }}
                     {{ form_widget(image_form.alt) }}
@@ -198,6 +214,41 @@
 
         }
 
+        /* Edition Alt image*/
+        modifyAltImage();
+
+        function modifyAltImage()
+        {
+            $('.editImageAltButton').on('click', function (e) {
+                $('.editImageAltButton').hide();
+
+                var idImage = $(this).data('idimage');
+                e.preventDefault();
+
+                var newImageAlt = $('#imageAlt_'+ idImage).val();
+                var data = {
+                    'imageAlt': newImageAlt,
+                    'idImage': idImage
+                };
+
+                $.ajax({
+                    url: '{{ path('we_crea_admin_image_alt_edit') }}',
+                    data: data,
+                    method: 'post',
+                    success: function (){
+                        Materialize.toast('<span class="toast_custom">Légende modifiée avec succès</span>', 4000) // 4000 is the duration of the toast
+                        $('.editImageAltButton').fadeIn();
+                    },
+                    error: function () {
+                        alert('Une erreur s\'est produite, vérifier les champs et réessayer.'); // 4000 is the duration of the toast
+                        $('.editImageAltButton').fadeIn();
+                    }
+                })
+            });
+
+        }
+
+        /*************************/
         $(document).ready(function(){
 
             var idWork = {{ work.id }};
