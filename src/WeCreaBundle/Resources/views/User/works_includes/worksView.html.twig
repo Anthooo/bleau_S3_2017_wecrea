@@ -59,7 +59,7 @@
             {% for work in works %}
                 {% if work.images[0] is defined %}
                     <div class="grid-item">
-                        <img width="100%" class="imageWorks" src="{{ work.images[0].url | imagine_filter('large') }}">
+                        <img width="100%" class="imageWorks" src="{{ work.images[0].url | imagine_filter('large') }}" alt="{{ work.images[0].alt }}">
                         <div class="top">
                             <div class="lineFavWork">
                                 {% if favs[work.id] is defined %}
