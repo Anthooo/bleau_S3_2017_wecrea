@@ -2,10 +2,11 @@
     <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>{% block title %}Les Artistes d'abord - Galerie d'art en ligne{% endblock %}</title>
         <meta name="description" content="Les artistes d'abord | Œuvres d’Art, Artistes émergents et reconnus sur notre Galerie d’Art en ligne.">
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="copyright" content="Fabien Dauvergne && Florent Alemany, Wild Code School Fontainebleau"/>
-        <title>{% block title %}Les Artistes d'abord{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/wecrea/pics/favicon.ico') }}" />
