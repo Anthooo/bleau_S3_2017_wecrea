@@ -61,6 +61,16 @@ class Legal
     /**
      * @var string
      */
+    private $pinterest;
+
+    /**
+     * @var string
+     */
+    private $googleplus;
+
+    /**
+     * @var string
+     */
     private $phone;
 
     /**
@@ -293,6 +303,54 @@ class Legal
     public function getYoutube()
     {
         return $this->youtube;
+    }
+
+    /**
+     * Set pinterest
+     *
+     * @param string $pinterest
+     *
+     * @return Legal
+     */
+    public function setPinterest($pinterest)
+    {
+        $this->pinterest = $pinterest;
+
+        return $this;
+    }
+
+    /**
+     * Get pinterest
+     *
+     * @return string
+     */
+    public function getPinterest()
+    {
+        return $this->pinterest;
+    }
+
+    /**
+     * Set googleplus
+     *
+     * @param string $googleplus
+     *
+     * @return Legal
+     */
+    public function setGoogleplus($googleplus)
+    {
+        $this->googleplus = $googleplus;
+
+        return $this;
+    }
+
+    /**
+     * Get googleplus
+     *
+     * @return string
+     */
+    public function getGoogleplus()
+    {
+        return $this->googleplus;
     }
 
     /**

@@ -35,6 +35,14 @@ WeCreaBundle\Entity\Legal:
             type: string
             length: 255
             nullable: true
+        pinterest:
+            type: string
+            length: 255
+            nullable: true
+        googleplus:
+            type: string
+            length: 255
+            nullable: true
         phone:
             type: string
             length: 14
