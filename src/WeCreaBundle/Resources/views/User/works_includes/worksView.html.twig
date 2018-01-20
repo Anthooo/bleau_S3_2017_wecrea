@@ -75,7 +75,7 @@
                         </div>
                         <div class="middle">
                             <div class="row">
-                                <a class="moreLink" href="{{ path('we_crea_artist', {id : work.artist.id} ) }}">{{ work.artist.firstname }} {{ work.artist.name }}</a>
+                                <a class="moreLink" href="{{ path('we_crea_artist', {id : work.artist.id, slug : work.artist.slug} ) }}">{{ work.artist.firstname }} {{ work.artist.name }}</a>
                                 <p style="margin: 0">{{ work.title }}</p>
                             </div>
                             <div class="row">

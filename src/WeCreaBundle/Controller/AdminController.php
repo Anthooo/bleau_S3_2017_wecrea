@@ -540,7 +540,7 @@ class AdminController extends Controller
         /* Tous les artistes un par un */
         $artistes = $em->getRepository('WeCreaBundle:Artist')->findAll();
         foreach ($artistes as $artiste) {
-            $urls[] = ['loc' => $this->get('router')->generate('we_crea_artist', array('id' => $artiste->getId()/*,'slug' => $artiste->getSlug()*/)), 'changefreq' => 'weekly', 'priority' => '1.0'];
+            $urls[] = ['loc' => $this->get('router')->generate('we_crea_artist', array('id' => $artiste->getId(),'slug' => $artiste->getSlug())), 'changefreq' => 'weekly', 'priority' => '1.0'];
         }
 
         /* Toutes les oeuvres toutes les nature*/

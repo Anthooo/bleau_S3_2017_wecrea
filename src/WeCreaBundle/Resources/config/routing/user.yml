@@ -29,7 +29,7 @@ we_crea_artists_list:
     defaults: {_controller: "WeCreaBundle:User:artistsShow"}
 
 we_crea_artist:
-    path: /artist/{id}
+    path: /artist/{id}/{slug}
     defaults: {_controller: "WeCreaBundle:User:artistShow"}
     requirements:
         id: \d+

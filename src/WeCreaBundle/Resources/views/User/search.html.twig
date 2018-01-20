@@ -32,7 +32,7 @@
                                 <div class="card-content card-content_custom">
                                 <span class="card-title activator grey-text text-darken-4 title">{{ work.title }}
                                     <img class="show_more activator" src="{{ asset('bundles/wecrea/pics/Picto-4.png') }}" alt="voir plus"></span>
-                                    <p><a href="{{ path('we_crea_artist', {id : work.artist.id} ) }}" class="artist">{{ work.artist.name }}</a></p>
+                                    <p><a href="{{ path('we_crea_artist', {id : work.artist.id, slug : work.artist.slug} ) }}" class="artist">{{ work.artist.name }}</a></p>
                                 </div>
                                 <div class="card-reveal">
                                     <span class="card-title grey-text text-darken-4">{{ work.title }}<i class="material-icons right">close</i></span>
@@ -48,12 +48,12 @@
                         {% for artist in artists %}
                             <div class="card card_custom_artist iso_item ">
                                 {% if artist.images|first != false %}
-                                    <a href="{{ path('we_crea_artist', {id : artist.id} ) }}">
+                                    <a href="{{ path('we_crea_artist', {id : artist.id, slug : artist.slug} ) }}">
                                         <div class="card-image waves-effect waves-block waves-light card-image_custom" style="background: url(' {{ asset('images/'~artist.images|first.url ) }} ') center / cover ">
                                         </div>
                                     </a>
                                 {% else %}
-                                    <a href="{{ path('we_crea_artist', {id : artist.id} ) }}">
+                                    <a href="{{ path('we_crea_artist', {id : artist.id, slug : artist.slug} ) }}">
                                         <div class="card-image waves-effect waves-block waves-light card-image_custom" style="background: url(' {{ asset('images/soap.jpg' ) }} ') center / cover ">
                                         </div>
                                     </a>
@@ -66,7 +66,7 @@
                                 <div class="card-reveal">
                                     <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                                     <p>{{ artist.biography[0:50] }}... </p>
-                                    <a href="{{ path('we_crea_artist', {'id' : artist.id} ) }}"> Accéder au profil </a>
+                                    <a href="{{ path('we_crea_artist', {'id' : artist.id, slug : artist.slug} ) }}"> Accéder au profil </a>
                                 </div>
                             </div>
                         {% endfor %}
