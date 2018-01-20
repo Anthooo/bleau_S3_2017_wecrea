@@ -95,11 +95,11 @@
 {% block javascripts %}
     <script type="text/javascript">
         $( "#actuLink" ).click(function() {
-            $('#carousel').addClass('hide');
-             $('#actu').css('margin-top', '100px');
+            $('#carousel').toggleClass('hide');
+            $('#actu').toggleClass('hide');
         });
 
-        
+
         {% if app.request.get('_route') == 'we_crea_homepage' or
         app.request.get('_route') == 'we_crea_actu'
         %}
