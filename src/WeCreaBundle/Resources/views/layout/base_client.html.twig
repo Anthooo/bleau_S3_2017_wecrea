@@ -94,9 +94,32 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
+
+        //PREMIER CODE TEST JS
+//        $( "#actuLink" ).click(function() {
+////            $('#carousel').toggleClass('hide');
+//            $('#carousel').fadeToggle('class', 'hide');
+//
+//            $('#actu').toggleClass('hide');
+//        });
+
+
+        //DEUXIEME CODE TEST JS
         $( "#actuLink" ).click(function() {
-            $('#carousel').toggleClass('hide');
-            $('#actu').toggleClass('hide');
+            if ($("#carousel").hasClass("hide")) {
+                $('#actu').fadeOut("fast", function () {
+                    $('#carousel').removeClass('hide');
+                    $('#actu').addClass('hide');
+            });
+
+            } else {
+                //alert('no class');
+                $('#actu').fadeIn('fast', function () {
+                    $('#carousel').addClass('hide');
+                    $('#actu').removeClass('hide');
+
+                });
+            }
         });
 
 
