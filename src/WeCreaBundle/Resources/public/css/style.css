@@ -870,7 +870,7 @@ form[name="basket"] {
 /********** ACTU PAGE ***********/
 
 .actu-user{
-    width: 70%;
+    /*width: 70%;*/
     margin: 0 auto 15px auto;
     padding: 5px;
     border: 1px solid #c8c8c8;

@@ -95,34 +95,23 @@
 {% block javascripts %}
     <script type="text/javascript">
         $( "#actuLink" ).click(function() {
-            $('#carousel').toggleClass('hide');
-            $('#actu').css('top', '150px');
-
+            $('#carousel').addClass('hide');
+             $('#actu').css('margin-top', '100px');
         });
-        {#{% if app.request.get('_route') == 'we_crea_homepage' or#}
-        {#app.request.get('_route') == 'we_crea_actu'#}
-        {#%}#}
-        {#var $footer = $('footer');#}
 
-        {#$footer.css({#}
-            {#'position' : 'absolute',#}
-            {#'bottom' : '0',#}
-            {#'left' : '0',#}
-            {#'width' : '100vw'#}
-        {#});#}
-        {#{% endif %}#}
+        
+        {% if app.request.get('_route') == 'we_crea_homepage' or
+        app.request.get('_route') == 'we_crea_actu'
+        %}
+        var $footer = $('footer');
 
-
-
-
-        if(display === "none"){
-            $(form).css("display", "");
-            $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-        }
-        else{
-            $(form).css("display", "none");
-        }
-
+        $footer.css({
+            'position' : 'fixed',
+            'bottom' : '0',
+            'left' : '0',
+            'width' : '100vw'
+        });
+        {% endif %}
 
 
         /************ SUGGESTIONS MOTEUR DE RECHERCHE ***************/
