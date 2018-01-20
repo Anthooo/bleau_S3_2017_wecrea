@@ -16,7 +16,7 @@
                         <li><a href="{{ path('we_crea_concept') }}">Concept</a></li>
                         <li><a href="{{ path('we_crea_works') }}">Oeuvres</a></li>
                         <li><a href="{{ path('we_crea_artists_list') }}">Artistes</a></li>
-                        <li><a href="{{ path('we_crea_actu') }}">Actualités</a></li>
+                        <li><a id="actuLink" href="#">Actualités</a></li>
                         <li>
                             <form name="search" method="post" action="{{ path('we_crea_search') }}">
                                 <input type="search" name="search" class="search" placeholder="Recherche"/>
@@ -94,18 +94,36 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
-        {% if app.request.get('_route') == 'we_crea_homepage' or
-        app.request.get('_route') == 'we_crea_actu'
-        %}
-        var $footer = $('footer');
+        $( "#actuLink" ).click(function() {
+            $('#carousel').toggleClass('hide');
+            $('#actu').css('top', '150px');
 
-        $footer.css({
-            'position' : 'absolute',
-            'bottom' : '0',
-            'left' : '0',
-            'width' : '100vw'
         });
-        {% endif %}
+        {#{% if app.request.get('_route') == 'we_crea_homepage' or#}
+        {#app.request.get('_route') == 'we_crea_actu'#}
+        {#%}#}
+        {#var $footer = $('footer');#}
+
+        {#$footer.css({#}
+            {#'position' : 'absolute',#}
+            {#'bottom' : '0',#}
+            {#'left' : '0',#}
+            {#'width' : '100vw'#}
+        {#});#}
+        {#{% endif %}#}
+
+
+
+
+        if(display === "none"){
+            $(form).css("display", "");
+            $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        }
+        else{
+            $(form).css("display", "none");
+        }
+
+
 
         /************ SUGGESTIONS MOTEUR DE RECHERCHE ***************/
 
