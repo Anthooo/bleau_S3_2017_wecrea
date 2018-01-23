@@ -405,6 +405,8 @@ footer {
     margin-top: 20px;
 }
 
+
+/* CAROUSEL */
 .slider {
     margin-top: 112px;
     height: calc(100% - 178px) !important;
@@ -437,6 +439,7 @@ footer {
     bottom: 10px!important;
 }
 
+
 .caption_custom {
     text-shadow: -1px 0 #080808, 0 1px #080808, 1px 0 #080808, 0 -1px #080808;
     top: 50% !important;
@@ -454,6 +457,8 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* fin carousel */
 
 /* WORKS CLIENT */
 
@@ -868,6 +873,12 @@ form[name="basket"] {
     margin: 0 !important;
 }
 /********** ACTU PAGE ***********/
+
+#actu {
+    top: 100%;
+    position: absolute;
+}
+
 
 .actu-user{
     /*width: 70%;*/

@@ -90,7 +90,6 @@ class ArtistController extends Controller
         $works = $em->getRepository('WeCreaBundle:Work')->findByArtist(array(
             'artist' => $artist
         ));
-
         foreach ($works as $work) {
             $images = $work->getImages();
             foreach ($images as $image) {

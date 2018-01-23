@@ -27,6 +27,9 @@ $(document).ready( function () {
     });
 
 
+    //
+    // Carousel
+    //
     $('.slider').slider({
         'transition': 300,
         'interval' : 3000

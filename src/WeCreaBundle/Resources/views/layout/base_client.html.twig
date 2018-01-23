@@ -16,7 +16,11 @@
                         <li><a href="{{ path('we_crea_concept') }}">Concept</a></li>
                         <li><a href="{{ path('we_crea_works') }}">Oeuvres</a></li>
                         <li><a href="{{ path('we_crea_artists_list') }}">Artistes</a></li>
-                        <li><a id="actuLink" href="#">Actualités</a></li>
+                        {% if app.request.get('_route') == 'we_crea_homepage' %}
+                        <li><a class="actuLink" href="">Actualités</a></li>
+                        {% else %}
+                        <li><a class="actuLink2" href="javascript:goToActu2();">Actualités</a></li>
+                        {% endif %}
                         <li>
                             <form name="search" method="post" action="{{ path('we_crea_search') }}">
                                 <input type="search" name="search" class="search" placeholder="Recherche"/>
@@ -64,7 +68,11 @@
                         <li><a href="{{ path('we_crea_concept') }}">Concept</a></li>
                         <li><a href="{{ path('we_crea_works') }}">Oeuvres</a></li>
                         <li><a href="{{ path('we_crea_artists_list') }}">Artistes</a></li>
-                        <li><a href="{{ path('we_crea_actu') }}">Actualités</a></li>
+                        {% if app.request.get('_route') == 'we_crea_homepage' %}
+                            <li><a class="actuLink" href="">Actualités</a></li>
+                        {% else %}
+                            <li><a class="actuLink2" href="javascript:goToActu2();">Actualités</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>
@@ -94,35 +102,31 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
+        /************************************
+        // Affichage actu dans homepage
+        /************************************
+        // Lancer à partir du menu quand dans homepage */
+        $(".actuLink" ).click('on', goToActu);
 
-        //PREMIER CODE TEST JS
-//        $( "#actuLink" ).click(function() {
-////            $('#carousel').toggleClass('hide');
-//            $('#carousel').fadeToggle('class', 'hide');
-//
-//            $('#actu').toggleClass('hide');
-//        });
+        function  goToActu() {
+            var divActu = $('#actu');
+            divActu.removeClass('hide');
+            $('html,body').animate({scrollTop: divActu.offset().top - 70},'slow');
+            $(".actu-user:last-child").css('margin-bottom', '17%');
+            $('.div.navbar-fixed .nav_custom_cont').sideNav('hide');
+        }
 
+        // Lancer à partir du menu si autre page que home
+        // Ne pas déplacer dans wecrea.ja sinon perte du path
+        function goToActu2 () {
+            window.location.href = "{{ path('we_crea_homepage') }}#redir";
+        }
 
-        //DEUXIEME CODE TEST JS
-        $( "#actuLink" ).click(function() {
-            if ($("#carousel").hasClass("hide")) {
-                $('#actu').fadeOut("fast", function () {
-                    $('#carousel').removeClass('hide');
-                    $('#actu').addClass('hide');
-            });
+        if (window.location.hash === '#redir') {
+            goToActu();
+        }
 
-            } else {
-                //alert('no class');
-                $('#actu').fadeIn('fast', function () {
-                    $('#carousel').addClass('hide');
-                    $('#actu').removeClass('hide');
-
-                });
-            }
-        });
-
-
+        // Footer
         {% if app.request.get('_route') == 'we_crea_homepage' or
         app.request.get('_route') == 'we_crea_actu'
         %}
