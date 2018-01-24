@@ -56,6 +56,12 @@ class LegalType extends AbstractType
 	        ->add('instagram', TextType::class, array(
 	        	'required' => false
 	        ))
+            ->add('pinterest', TextType::class, array(
+                'required' => false
+            ))
+            ->add('googleplus', TextType::class, array(
+                'required' => false
+            ))
 	        ->add('youtube', TextType::class, array(
 	        	'required' => false
 	        ))

@@ -19,7 +19,7 @@
                 <ul>
                     <li><a href="{{ path('we_crea_contact') }}">E-mail</a></li>
                     {% if (footer.phone != null) %}
-                    <li><img class="phoneicn" src="{{ asset('bundles/wecrea/pics/phone.png') }}"><span class="phone">{{ footer.phone }}</span></li>
+                        <li><img class="phoneicn" src="{{ asset('bundles/wecrea/pics/phone.png') }}"><span class="phone">{{ footer.phone }}</span></li>
                     {% endif %}
                 </ul>
             </div>
@@ -52,13 +52,22 @@
                 </div>
                 <div class="col l4 m3 s12" style="padding: 0;">
                     {% if (footer.facebook != null) %}
-                        <a class="moreLink" href="{{ footer.facebook }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/facebook.png') }}" alt="Facebook" title="Facebook" style="width: 9%;"></a>
+                        <a class="moreLink" href="{{ footer.facebook }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/facebook.png') }}" alt="Facebook" title="Facebook" ></a>
                     {% endif %}
                     {% if (footer.instagram != null) %}
-                        <a class="moreLink" href="{{ footer.instagram }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/instagram.png') }}" alt="Instagram" title="Instagram" style="width: 9%;"></a>
+                        <a class="moreLink" href="{{ footer.instagram }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/instagram.png') }}" alt="Instagram" title="Instagram" ></a>
+                    {% endif %}
+                    {% if (footer.twitter != null) %}
+                        <a class="moreLink" href="{{ footer.twitter }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/twitter.png') }}" alt="Google+" title="Google+" ></a>
+                    {% endif %}
+                    {% if (footer.pinterest != null) %}
+                        <a class="moreLink" href="{{ footer.pinterest }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/pinterest.png') }}" alt="Pinterest" title="Pinterest" ></a>
+                    {% endif %}
+                    {% if (footer.googleplus != null) %}
+                        <a class="moreLink" href="{{ footer.googleplus }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/googleplus.png') }}" alt="Google+" title="Google+" ></a>
                     {% endif %}
                     {% if (footer.youtube != null) %}
-                        <a class="moreLink" href="{{ footer.youtube }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/youtube.png') }}" alt="Youtube" title="Youtube" style="width: 9%;"></a>
+                        <a class="moreLink" href="{{ footer.youtube }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/youtube.png') }}" alt="Youtube" title="Youtube"></a>
                     {% endif %}
                 </div>
                 {#<div class="col l3 m4 s12" style="padding: 0;">#}

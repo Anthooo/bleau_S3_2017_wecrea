@@ -16,7 +16,11 @@
                         <li><a href="{{ path('we_crea_concept') }}">Concept</a></li>
                         <li><a href="{{ path('we_crea_works') }}">Oeuvres</a></li>
                         <li><a href="{{ path('we_crea_artists_list') }}">Artistes</a></li>
-                        <li><a href="{{ path('we_crea_actu') }}">Actualités</a></li>
+                        {% if app.request.get('_route') == 'we_crea_homepage' %}
+                        <li><a class="actuLink" href="#">Actualités</a></li>
+                        {% else %}
+                        <li><a class="actuLink2" href="javascript:goToActu2();">Actualités</a></li>
+                        {% endif %}
                         <li>
                             <form name="search" method="post" action="{{ path('we_crea_search') }}">
                                 <input type="search" name="search" class="search" placeholder="Recherche"/>
@@ -64,7 +68,11 @@
                         <li><a href="{{ path('we_crea_concept') }}">Concept</a></li>
                         <li><a href="{{ path('we_crea_works') }}">Oeuvres</a></li>
                         <li><a href="{{ path('we_crea_artists_list') }}">Artistes</a></li>
-                        <li><a href="{{ path('we_crea_actu') }}">Actualités</a></li>
+                        {% if app.request.get('_route') == 'we_crea_homepage' %}
+                            <li><a class="actuLink" href="#">Actualités</a></li>
+                        {% else %}
+                            <li><a class="actuLink2" href="javascript:goToActu2();">Actualités</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>
@@ -94,18 +102,44 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
+        /************************************
+        // Affichage actu dans homepage
+        /************************************
+        // Lancer à partir du menu quand dans homepage */
+        $(".actuLink" ).on('click', goToActu);
+
+        function  goToActu() {
+            var divActu = $('#actu');
+            divActu.removeClass('hide');
+            $('html,body').animate({scrollTop: divActu.offset().top - 70},'slow');
+            $(".actu-user:last-child").css('margin-bottom', '17%');
+            $('.div.navbar-fixed .nav_custom_cont').sideNav('hide');
+        }
+
+        // Lancer à partir du menu si autre page que home
+        // Ne pas déplacer dans wecrea.ja sinon perte du path
+        function goToActu2 () {
+            window.location.href = "{{ path('we_crea_homepage') }}#redir";
+        }
+
+        if (window.location.hash === '#redir') {
+            goToActu();
+        }
+
+        // Footer
         {% if app.request.get('_route') == 'we_crea_homepage' or
         app.request.get('_route') == 'we_crea_actu'
         %}
         var $footer = $('footer');
 
         $footer.css({
-            'position' : 'absolute',
+            'position' : 'fixed',
             'bottom' : '0',
             'left' : '0',
             'width' : '100vw'
         });
         {% endif %}
+
 
         /************ SUGGESTIONS MOTEUR DE RECHERCHE ***************/
 
