@@ -37,7 +37,7 @@ class UserController extends Controller
         shuffle($carrousels);
         $bCount = $container->get('app.basket')->countBasket($session);
         $fCount = $container->get('favs')->countFavs($session);
-        $actus = $em->getRepository('WeCreaBundle:Actu')->findAll();
+        $actus = $em->getRepository('WeCreaBundle:Actu')->findBy([], ["date" => "DESC"]);
 
         return $this->render('WeCreaBundle:User:index.html.twig', array(
             'carrousels' => $carrousels,
