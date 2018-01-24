@@ -27,6 +27,7 @@ WeCreaBundle\Entity\Artist:
               slug:
                 suffix: .html
                 fields:
+                  - firstname
                   - name
 
 
