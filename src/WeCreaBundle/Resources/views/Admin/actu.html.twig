@@ -1,12 +1,19 @@
 {% extends '@WeCrea/layout/base_admin.html.twig' %}
 
 {% block body %}
+    <style>
+        .input-field label {
+            position: static;
+        }
+    </style>
+
     <div class="container container-custom-artists">
         <h4 style="text-align: center; background: #b22222; color: #fff; padding: 10px;">Édition des actualités</h4>
         <button id="buttonAddActu" class="btn waves-effect waves-light black">
             Ajouter une actu
             <i class="material-icons left">add</i>
         </button>
+        {# Formulaire saisi nouvelle actu #}
         <div style="display: none;" class="row" id="formAddActu">
             <div class="col m10 offset-m1">
                 {{ form_start(formActu) }}
@@ -17,7 +24,7 @@
                 </div>
                 <div class="input-field">
                     {{ form_label(formActu.content, "Contenu") }}
-                    {{ form_widget(formActu.content, {'attr' : {'class': 'materialize-textarea'}} ) }}
+                    {{ form_widget(formActu.content) }}
                     {{ form_errors(formActu.content) }}
                 </div>
                 <div class="input-field">
@@ -45,6 +52,7 @@
                 </button>
                 {{ form_end(formActu) }}
             </div>
+            {# fin form new actu #}
         </div>
         <div class="row row_custom show_actu">
             {% for actu in actus %}
@@ -76,6 +84,7 @@
 
             var showActuElt = document.getElementsByClassName("show_actu")[0];
 
+            /* Ajout nouvelle actu */
             $('form[name="wecreabundle_actu"]').submit( function (e) {
                 e.preventDefault();
                 var $data = new FormData($(this)[0]);
@@ -130,7 +139,8 @@
                                 h3Elt.textContent = "Titre : " + this.title;
 
                                 var contentElt = document.createElement("p");
-                                contentElt.textContent = "Contenu : " + this.content;
+                                var contentHtml = this.content.innerHTML;
+                                contentElt.textContent = "Contenu : " + contentHtml;
 
                                 var dateElement = document.createElement("p");
                                 dateElement.textContent = "Date de publication : " + this.date;
@@ -184,6 +194,7 @@
                 })
             });
 
+            /* Suppression actu */
             $('.delete_btn').on('click', function (e) {
                 var id = $(this).attr('id');
                 e.preventDefault();
