@@ -139,6 +139,15 @@
             'width' : '100vw'
         });
         {% endif %}
+        
+        // si click sur navbar mobile, retour en haut écran
+        {% if app.request.get("_route") == 'we_crea_homepage' %}
+        $(".button-collapse").click(function() {
+            $("html, body").animate({ scrollTop: 0 }, "fast");
+            return false;
+        });
+
+        {% endif %}
 
 
         /************ SUGGESTIONS MOTEUR DE RECHERCHE ***************/
