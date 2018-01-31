@@ -88,7 +88,6 @@
             $('form[name="wecreabundle_actu"]').submit( function (e) {
                 e.preventDefault();
                 var $data = new FormData($(this)[0]);
-
                 $.ajax({
                     method: 'post',
                     url: "{{ path('we_crea_admin_actu_add') }}",
@@ -139,8 +138,8 @@
                                 h3Elt.textContent = "Titre : " + this.title;
 
                                 var contentElt = document.createElement("p");
-                                var contentHtml = this.content.innerHTML;
-                                contentElt.textContent = "Contenu : " + contentHtml;
+                                contentElt.textContent = "Contenu : ";
+                                contentElt.append(this.content.innerHTML);
 
                                 var dateElement = document.createElement("p");
                                 dateElement.textContent = "Date de publication : " + this.date;
@@ -179,7 +178,10 @@
                             response.id,
                             response.images.url,
                             response.title,
+                            response.content,
+/*
                             response.content.replace(/<p>|<\/p>|&nbsp;/g, ""),
+*/
                             new Date(response.date.timestamp*1000).toLocaleDateString()
                         );
 

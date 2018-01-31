@@ -99,10 +99,17 @@
         <img src="{{ image }}"/>
         {% autoescape %}
             <p>{{ actu.content|slice(0, 200)|raw }}...</p>
-            <i><b> Publié le {{ actu.date|date('d/m/Y') }} </b> par <span style="color: #1E90FF;">We-Crea</span></i></p>
+                <i>
+                    <b> Publié le {{ actu.date|date('d/m/Y') }} </b> par <span style="color: #1E90FF;">We-Crea</span>
+                </i>
+            </p>
         {% endautoescape %}
-        <a href="{{ url('we_crea_actu') }}" target="_blank"><button>En savoir plus</button></a>
-        <i style="margin-top: 20px;"><b> Si le lien ne fonctionne pas correctement, retrouver l'article à l'adresse : </b><br /> {{ url('we_crea_actu') }}</i>
+        <a href="{{ url('we_crea_homepage') }}" target="_blank"><button>En savoir plus</button></a>
+        <i style="margin-top: 20px;">
+            <b> Si le lien ne fonctionne pas correctement, retrouver l'article à l'adresse :
+            </b><br />
+            {{ url('we_crea_actu') }}
+        </i>
         <a href="{{ url('we_crea_unsubscribe', {token : subscriber.token} ) }}" id="unsubscribe"> Me désabonner </a>
     </div>
 <footer>
