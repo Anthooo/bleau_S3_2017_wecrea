@@ -104,15 +104,15 @@
                 </i>
             </p>
         {% endautoescape %}
-        <a href="{{ url('we_crea_homepage') }}" target="_blank"><button>En savoir plus</button></a>
+        <a href="{{ url('we_crea_homepage') ~ '#redir' }}" target="_blank"><button>En savoir plus</button></a>
         <i style="margin-top: 20px;">
             <b> Si le lien ne fonctionne pas correctement, retrouver l'article à l'adresse :
             </b><br />
-            {{ url('we_crea_actu') }}
+            {{ url('we_crea_homepage') ~ '#redir' }}
         </i>
         <a href="{{ url('we_crea_unsubscribe', {token : subscriber.token} ) }}" id="unsubscribe"> Me désabonner </a>
     </div>
 <footer>
-    &copy; 2017 We-Crea
+    &copy; 2018 We-Crea
 </footer>
 </html>
