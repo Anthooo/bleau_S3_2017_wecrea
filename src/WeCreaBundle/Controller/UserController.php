@@ -37,7 +37,8 @@ class UserController extends Controller
         shuffle($carrousels);
         $bCount = $container->get('app.basket')->countBasket($session);
         $fCount = $container->get('favs')->countFavs($session);
-        $actus = $em->getRepository('WeCreaBundle:Actu')->findAll();
+        $actus = $em->getRepository('WeCreaBundle:Actu')->findBy([], ["date" => "DESC"]);
+
 
         return $this->render('WeCreaBundle:User:index.html.twig', array(
             'carrousels' => $carrousels,
@@ -872,27 +873,6 @@ class UserController extends Controller
                 'response' => "Aucun article ne correspond à votre recherche"
             ));
         }
-    }
-
-    /**
-     * Show actu page
-     * @return Response
-     */
-    public function actuAction(){
-        $em = $this->getDoctrine()->getManager();
-        $session = $this->get('session');
-
-        $container = $this->container;
-
-        $bCount = $container->get('app.basket')->countBasket($session);
-        $actu = $em->getRepository('WeCreaBundle:Actu')->findBy([], array(
-            'date' => 'DESC'
-        ));
-
-        return $this->render('WeCreaBundle:User:actu.html.twig', array(
-            'actus' => $actu,
-            'bCount' => $bCount,
-        ));
     }
 
     /**
