@@ -39,7 +39,6 @@ class UserController extends Controller
         $fCount = $container->get('favs')->countFavs($session);
         $actus = $em->getRepository('WeCreaBundle:Actu')->findBy([], ["date" => "DESC"]);
 
-
         return $this->render('WeCreaBundle:User:index.html.twig', array(
             'carrousels' => $carrousels,
             'bCount' => $bCount,
