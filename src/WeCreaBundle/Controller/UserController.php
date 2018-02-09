@@ -875,27 +875,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show actu page
-     * @return Response
-     */
-    public function actuAction(){
-        $em = $this->getDoctrine()->getManager();
-        $session = $this->get('session');
-
-        $container = $this->container;
-
-        $bCount = $container->get('app.basket')->countBasket($session);
-        $actu = $em->getRepository('WeCreaBundle:Actu')->findBy([], array(
-            'date' => 'DESC'
-        ));
-
-        return $this->render('WeCreaBundle:User:actu.html.twig', array(
-            'actus' => $actu,
-            'bCount' => $bCount,
-        ));
-    }
-
-    /**
      * Suscribe newsletter
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse

@@ -1,6 +1,11 @@
 {% extends '@WeCrea/layout/base_admin.html.twig' %}
 
 {% block body %}
+    <style>
+        .input-field label {
+            position: static;
+        }
+    </style>
 
     <div class="container container-custom-artists">
 
@@ -16,7 +21,7 @@
                 </div>
                 <div class="input-field">
                     {{ form_label(form.content, "Contenu") }}
-                    {{ form_widget(form.content, {'attr' : {'class': 'materialize-textarea'}} ) }}
+                    {{ form_widget(form.content|raw ) }}
                     {{ form_errors(form.content) }}
                 </div>
                 <div class="input-field">
