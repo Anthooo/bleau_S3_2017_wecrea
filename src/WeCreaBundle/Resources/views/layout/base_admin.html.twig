@@ -10,7 +10,15 @@
         <div class="navbar-fixed nav_custom_cont">
             <nav class="nav_custom">
                 <div class="nav-wrapper">
-                    <a href="{{ path('we_crea_admin_homepage') }}" class="brand-logo"><img class="logo" src="{{ asset('bundles/wecrea/pics/Les-Artistes-d\'abord.png') }}" alt="logo"></a>
+                    {% if app.request.attributes.get('_route') != "we_crea_admin_homepage" %}
+                    <a href="{{ path('we_crea_admin_homepage') }}" class="brand-logo">
+                        <img class="logo" src="{{ asset('bundles/wecrea/pics/Les-Artistes-d\'abord.png') }}" alt="logo">
+                    </a>
+                    {% else %}
+                        <a href="{{ path('we_crea_homepage') }}" class="brand-logo">
+                            <img class="logo" src="{{ asset('bundles/wecrea/pics/Les-Artistes-d\'abord.png') }}" alt="logo">
+                        </a>
+                    {% endif %}
                 </div>
             </nav>
         </div>

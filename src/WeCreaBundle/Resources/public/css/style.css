@@ -352,7 +352,7 @@ textarea{
 
 /* icone login admin */
 .moreLink3 {
-    color: #2B292E!important;
+    color: dimgrey!important;
     cursor: pointer;
     font-size: 14px;
     padding-left: 0.2em;
