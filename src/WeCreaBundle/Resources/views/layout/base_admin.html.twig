@@ -37,7 +37,7 @@
     {% if app.request.attributes.get('_route') != "we_crea_admin_homepage" %}
     <button id="menu_admin_button">Menu</button>
     <ul id="sidenav_admin">
-        <li style="background: black;"><a href="{{ path('we_crea_admin_homepage') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Accueil</a></li>
+        <li style="background: black;"><a href="{{ path('we_crea_admin_homepage') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Administration</a></li>
         <li style="background: dodgerblue;"><a href="{{ path('we_crea_admin_carrousel_edition') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Carrousel</a></li>
         <li style="background: green;"><a href="{{ path('we_crea_admin_artist_list') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Artistes</a></li>
         <li style="background: tomato;"><a href="{{ path('we_crea_admin_concept_edit') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Concept</a></li>
@@ -47,7 +47,7 @@
         <li style="background: deeppink;"><a href="{{ path('we_crea_admin_command_status') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Commandes</a>
         {#<li style="background: darkorange;"><a href="{{ path('we_crea_admin_contact') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Messages reçus</a>#}
         {#<li style="background: brown;"><a href="{{ path('we_crea_admin_messages_sent') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Messages envoyés</a>#}
-        <li style="background: #f2da00;"><a href="{{ path('we_crea_admin_legal') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Paramètres</a>
+        <li style="background: #f2da00;"><a href="{{ path('we_crea_admin_legal') }}" style="display: block; width: 100%; color: grey; text-decoration: none;">Paramètres</a>
         <li style="background: black;"><a href="{{ path('we_crea_homepage') }}" style="display: block; width: 100%; color: #fff; text-decoration: none;">Site web</a></li>
     </ul>
     {% endif %}
