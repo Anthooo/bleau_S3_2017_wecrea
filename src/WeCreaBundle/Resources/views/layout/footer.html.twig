@@ -46,6 +46,15 @@
             >
                 <div class="col l4 m12 s12" style="padding: 0;">
                     <a href="https://wildcodeschool.fr/" class="moreLink" style="font-size: small">© 2017 Copyright WCS & We-Crea</a>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="moreLink4" href="{{ path('fos_user_security_logout') }}">
+                            <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+                        </a>
+                    {% else %}
+                        <a class="moreLink3" href="{{ path('we_crea_admin_homepage') }}">
+                            <i class="fa fa-key fa-fw" aria-hidden="true"></i>
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="col l4 m3 s12" style="padding: 0;">
                     <a id="moreLink">Contactez-nous</a>

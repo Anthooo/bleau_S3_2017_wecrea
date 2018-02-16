@@ -350,6 +350,23 @@ textarea{
     font-size: 19px;
 }
 
+/* icone login admin */
+.moreLink3 {
+    color: #2B292E!important;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 0.2em;
+}
+
+/* icone logout admin */
+.moreLink4 {
+    color: red!important;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 0.2em;
+}
+
+
 #moreLink {
     color: black!important;
     cursor: pointer;
