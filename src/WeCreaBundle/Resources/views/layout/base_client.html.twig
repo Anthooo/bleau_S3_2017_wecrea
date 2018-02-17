@@ -29,16 +29,17 @@
                                     <i class="material-icons right">search</i>
                                 </button>
                             </form>
-                        <li id="profil_icon">
+                        <li>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED")%}
                                 <a href="{{ path('fos_user_security_logout') }}">
                                     <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
                                 </a>
-                            {% else %}
-                                <a href="{{ path('we_crea_user_profil') }}">
-                                    <i class="material-icons">person</i>
-                                </a>
                             {% endif %}
+                        </li>
+                        <li id="profil_icon">
+                            <a href="{{ path('we_crea_user_profil') }}">
+                                <i class="material-icons">person</i>
+                            </a>
                         </li>
                         <li>
                             <a href="{{ path('we_crea_basket') }}" class="valign-wrapper">
@@ -61,15 +62,9 @@
 
                     <ul id="mobile-demo" class="side-nav side-nav-custom">
                         <li id="profil_icon">
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED")%}
-                            <a href="{{ path('fos_user_security_logout') }}">
-                                <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+                            <a href="{{ path('we_crea_user_profil') }}">
+                                <i class="material-icons">person</i>
                             </a>
-                            {% else %}
-                                <a href="{{ path('we_crea_user_profil') }}">
-                                    <i class="material-icons">person</i>
-                                </a>
-                            {% endif %}
                             <a href="{{ path('we_crea_basket') }}">
                                 <img class="bask_icon" src="{{ asset('bundles/wecrea/pics/Panier.png') }}" alt="">{% if bCount is defined and bCount > 0 %}<span class="basket_badge">{{ bCount }}</span>{% endif %}
                             </a>
@@ -91,6 +86,10 @@
                             <li><a class="actuLink" href="#">Actualités</a></li>
                         {% else %}
                             <li><a class="actuLink2" href="javascript:goToActu2();">Actualités</a></li>
+                        {% endif %}
+                        <div class="divider"></div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED")%}
+                            <li><a class="actuLink" href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                         {% endif %}
                         {% if is_granted("ROLE_ADMIN") %}
                             <div class="divider"></div>
