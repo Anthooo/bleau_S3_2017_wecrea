@@ -29,6 +29,13 @@
                                     <i class="material-icons right">search</i>
                                 </button>
                             </form>
+                        <li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED")%}
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+                                </a>
+                            {% endif %}
+                        </li>
                         <li id="profil_icon">
                             <a href="{{ path('we_crea_user_profil') }}">
                                 <i class="material-icons">person</i>
@@ -44,6 +51,13 @@
                                 <img class="fav_icon" src="{{ asset('bundles/wecrea/pics/Coup-de-coeur.png') }}" alt="">
                             </a>
                         </li>
+                        {% if is_granted("ROLE_ADMIN") %}
+                        <li>
+                            <a class="moreLink3" href="{{ path('we_crea_admin_homepage') }}">
+                                <i class="adminColor material-icons">dashboard</i>
+                            </a>
+                        </li>
+                        {% endif %}
                     </ul>
 
                     <ul id="mobile-demo" class="side-nav side-nav-custom">
@@ -72,6 +86,20 @@
                             <li><a class="actuLink" href="#">Actualités</a></li>
                         {% else %}
                             <li><a class="actuLink2" href="javascript:goToActu2();">Actualités</a></li>
+                        {% endif %}
+                        <div class="divider"></div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED")%}
+                            <li><a class="actuLink" href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                        {% endif %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <div class="divider"></div>
+                            <li>
+                                <a class="moreLink3" href="{{ path('we_crea_admin_homepage') }}">
+                                    <i class="adminColor material-icons">dashboard</i>
+                                     Administration
+                                </a>
+                            </li>
+                            <div class="divider"></div>
                         {% endif %}
                     </ul>
                 </div>
