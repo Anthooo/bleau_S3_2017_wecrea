@@ -971,6 +971,7 @@ form[name="basket"] {
     background: #eee !important;
     border-top: none !important;
     padding: 5px 15px !important;
+    text-align: right;
 }
 
 .publish {
