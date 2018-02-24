@@ -1,15 +1,31 @@
 {% extends '@WeCrea/layout/base_client.html.twig' %}
 
+{% block title %}{{ artist.firstname }} {{ artist.name }}, {{ artist.expertise }} - Les Artistes d'abord{% endblock %}
 {% block body %}
     <div class="base_client">
         <div class="container">
-            <h2>{{ artist.firstname }} {{ artist.name }}</h2>
+            <h1 class="titreArtiste">{{ artist.firstname }} {{ artist.name }}</h1>
             {% for image in artist.images %}
                 <div class="row">
                     <div class="col s12">
                         <div class="artist-img">
                             <img src="{{ image.url | imagine_filter('xLarge') }}" alt="{{ image.alt }}"/>
-                            <i>{{ artist.firstname }} {{ artist.name }}</i>
+                            <span class="artistName">{{ artist.firstname }} {{ artist.name }}</span>
+                            <div class="shareBtn right">
+                                <span class="shareTxt">Partager :</span>
+                                <a href="http://www.facebook.com/sharer.php?u={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_artist', { 'id': artist.id, "slug": artist.slug }) }}&p[title]={{ artist.firstname }} {{ artist.name }}" target="_blank">
+                                    <i class="fab fa-facebook-square share"></i>
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?text={{ artist.firstname }}%20{{ artist.name }}%20%7C%20Les%20Artistes%20d&#39abord&url={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_artist', { 'id': artist.id, "slug": artist.slug }) }}&hashtags=lesartistesdabord" target="_blank">
+                                    <i class="fab fa-twitter-square share"></i>
+                                </a>
+                                <a href="https://plus.google.com/share?url={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_artist', { 'id': artist.id, "slug": artist.slug }) }}" target="_blank">
+                                    <i class="fab fa-google-plus-square share"></i>
+                                </a>
+                                <a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_artist', { 'id': artist.id, "slug": artist.slug }) }}&media={{ app.request.getSchemeAndHttpHost()}}{{ asset('images/') }}{{ image.url }}&description={{ artist.firstname }} {{ artist.name }} - {{ artist.expertise }}" data-pin-custom="true">
+                                    <i class="fab fa-pinterest-square share"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

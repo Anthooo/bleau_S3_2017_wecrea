@@ -10,7 +10,7 @@
                             <a href="{{ carrousel.rout }}" target="_blank">
                                 <img src="{{ carrousel.image_url | imagine_filter('xLarge') }}" alt="{{ carrousel.image_alt }}">
                                 <div class="caption left-align caption_custom">
-                                    <h3 style="color: {% if carrousel.fontColor is not null %}{{ carrousel.fontColor }}{% endif %}">{{ carrousel.title }}</h3>
+                                    <h1 class="titreCarrousel" style="color: {% if carrousel.fontColor is not null %}{{ carrousel.fontColor }}{% endif %}">{{ carrousel.title }}</h1>
                                     <p style="color: {% if carrousel.fontColor is not null %}{{ carrousel.fontColor }}{% endif %}">{{ carrousel.content }}</p>
                                 </div>
                             </a>
