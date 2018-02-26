@@ -16,10 +16,8 @@
                 </div>
                 {% set myPath = path('we_crea_homepage') ~'#redir' %}
                 {% set myPath2 = asset('images/') ~ actu.images.url %}
-                {{ dump(myPath) }}
-                {{ dump(myPath2) }}
                 <div class="card-action actuShare">
-                    <span class="shareTxt">Partager :</span>
+                    <span class="shareTxt left">Partager :
                     <a href="http://www.facebook.com/sharer.php?u={{ app.request.getSchemeAndHttpHost()}}{{ myPath }}&p[title]={{ actu.title }}" target="_blank">
                         <i class="fab fa-facebook-square share"></i>
                     </a>
@@ -32,52 +30,14 @@
                     <a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ app.request.getSchemeAndHttpHost()}}{{ myPath }}&media={{ app.request.getSchemeAndHttpHost()}}{{ myPath2 }}&description={{ actu.title }}" data-pin-custom="true">
                         <i class="fab fa-pinterest-square share"></i>
                     </a>
+                        </span>
                     <span class="publish">Publié le {{ actu.date|date('d/m/Y') }}</span>
                 </div>
             </div>
-
-            {#<div class="actu-user">#}
-                {#<h1 class="titreActu">{{ actu.title }}</h1>#}
-
-                {#<figure class="figure-no-zoom">#}
-                    {#<img src="{{ asset('images/'~actu.images.url) }}" class="materialboxed" style="width: 100%"/>#}
-                {#</figure>#}
-
-                {#<div class="content">#}
-
-                    {#{% autoescape %}#}
-
-                        {#{{ actu.content|raw }}#}
-
-                    {#{% endautoescape %}#}
-
-                {#</div>#}
-
-                {#<i>Publié le {{ actu.date|date('d/m/Y') }}</i>#}
-
-            {#</div>#}
-
         {% endfor %}
     </div>
 </div>
-{#<div class="container">#}
-    {#<div class="row">#}
-        {#<h2 id="title-actu"> Nos actualités </h2>#}
 
-        {#<div class="col s12 m12">#}
-            {#<div class="card">#}
-                {#<div class="card-image">#}
-                    {#<img src="images/sample-1.jpg">#}
-                    {#<span class="card-title">Card Title</span>#}
-                {#</div>#}
-                {#<div class="card-content">#}
-                    {#<p>I am a very simple card. I am good at containing small bits of information.#}
-                        {#I am convenient because I require little markup to use effectively.</p>#}
-                {#</div>#}
-                {#<div class="card-action">#}
-                    {#<a href="#">This is a link</a>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
+
+
+
