@@ -22,9 +22,9 @@ $(document).ready( function () {
 
     showFormUserProfil();
 
-    $(window).resize(function () {
-        cardResize();
-    });
+    // $(window).resize(function () {
+    //     cardResize();
+    // });
 
 
     //
