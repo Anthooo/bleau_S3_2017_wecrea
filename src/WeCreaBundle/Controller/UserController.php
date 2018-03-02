@@ -164,10 +164,7 @@ class UserController extends Controller
         $bCount = $this->get('app.basket')->countBasket($session);
         $fCount = $this->get('favs')->countFavs($session);
 
-        $artists = $em->getRepository('WeCreaBundle:Artist')->findBy(array(),
-            array(
-                'name' => 'ASC'
-            ));
+        $artists = $em->getRepository('WeCreaBundle:Artist')->listArtists();
 
         return $this->render('WeCreaBundle:User:artists.html.twig', array(
             'bCount' => $bCount,

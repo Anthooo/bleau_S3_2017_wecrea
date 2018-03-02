@@ -33,6 +33,12 @@
                     {{ form_widget(form.biography, {'attr': {'class':'biography materialize-textarea'}} ) }}
                 </div>
                 <div class="input-field col s12">
+                    {{ form_widget(form.publication) }}
+                    {{ form_label(form.publication, 'Publié') }}
+                    {{ form_errors(form.publication) }}
+
+                </div>
+                <div class="input-field col s12">
                     <button class="btn waves-effect waves-light black left" type="submit" name="action">
                         Créer le profil
                         <i class="material-icons left">send</i>
