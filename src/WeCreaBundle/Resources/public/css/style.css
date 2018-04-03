@@ -974,6 +974,11 @@ form[name="basket"] {
     text-align: right;
 }
 
+.actuShare a {
+    color: RGBA(0,0,0,0.5) !important;
+    margin-right: initial !important;
+}
+
 .publish {
     font-style: italic;
 }

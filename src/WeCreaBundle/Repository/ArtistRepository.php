@@ -10,6 +10,14 @@ namespace WeCreaBundle\Repository;
  */
 class ArtistRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function listArtists()
+    {
+        return $this->createQueryBuilder("a")
+            ->where("a.publication = 1")
+            ->getQuery()
+            ->getResult();
+    }
+
     /* If no suggestion received as search */
     public function myFindProfilByNameOrFirstname($exp)
     {

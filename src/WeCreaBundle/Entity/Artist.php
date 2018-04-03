@@ -39,7 +39,10 @@ class Artist
      */
     private $images;
 
-
+    /**
+     * @var boolean
+     */
+    private $publication;
 
     /**
      * @var string
@@ -256,5 +259,29 @@ class Artist
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set publication
+     *
+     * @param boolean $publication
+     *
+     * @return Artist
+     */
+    public function setPublication($publication)
+    {
+        $this->publication = $publication;
+
+        return $this;
+    }
+
+    /**
+     * Get publication
+     *
+     * @return boolean
+     */
+    public function getPublication()
+    {
+        return $this->publication;
     }
 }
