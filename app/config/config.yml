@@ -44,6 +44,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+#    globals:
+#        bCount: '@WeCreaBundle\Service\Basket'
 
 # Doctrine Configuration
 doctrine:
@@ -145,3 +147,9 @@ knp_snappy:
         enabled:    true
         binary:     /usr/local/bin/wkhtmltoimage
         options:    []
+
+# Stof\DoctrineExtensionsBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true

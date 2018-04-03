@@ -7,8 +7,9 @@ namespace WeCreaBundle\Entity;
  */
 class Legal
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -18,15 +19,70 @@ class Legal
     private $mention;
 
     /**
-     * @var int
+     * @var float
      */
     private $tva;
+
+    /**
+     * @var string
+     */
+    private $defiscalisation;
+
+    /**
+     * @var string
+     */
+    private $cgv;
+
+    /**
+     * @var string
+     */
+    private $cgu;
+
+    /**
+     * @var string
+     */
+    private $facebook;
+
+    /**
+     * @var string
+     */
+    private $twitter;
+
+    /**
+     * @var string
+     */
+    private $instagram;
+
+    /**
+     * @var string
+     */
+    private $youtube;
+
+    /**
+     * @var string
+     */
+    private $pinterest;
+
+    /**
+     * @var string
+     */
+    private $googleplus;
+
+    /**
+     * @var string
+     */
+    private $phone;
+
+    /**
+     * @var string
+     */
+    private $returnWorkText;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -60,7 +116,7 @@ class Legal
     /**
      * Set tva
      *
-     * @param integer $tva
+     * @param float $tva
      *
      * @return Legal
      */
@@ -74,17 +130,12 @@ class Legal
     /**
      * Get tva
      *
-     * @return int
+     * @return float
      */
     public function getTva()
     {
         return $this->tva;
     }
-    /**
-     * @var string
-     */
-    private $defiscalisation;
-
 
     /**
      * Set defiscalisation
@@ -109,16 +160,6 @@ class Legal
     {
         return $this->defiscalisation;
     }
-    /**
-     * @var string
-     */
-    private $cgv;
-
-    /**
-     * @var string
-     */
-    private $cgu;
-
 
     /**
      * Set cgv
@@ -167,26 +208,6 @@ class Legal
     {
         return $this->cgu;
     }
-    /**
-     * @var string
-     */
-    private $facebook;
-
-    /**
-     * @var string
-     */
-    private $twitter;
-
-    /**
-     * @var string
-     */
-    private $instagram;
-
-    /**
-     * @var string
-     */
-    private $youtube;
-
 
     /**
      * Set facebook
@@ -285,10 +306,76 @@ class Legal
     }
 
     /**
-     * @var string
+     * Set pinterest
+     *
+     * @param string $pinterest
+     *
+     * @return Legal
      */
-    private $returnWorkText;
+    public function setPinterest($pinterest)
+    {
+        $this->pinterest = $pinterest;
 
+        return $this;
+    }
+
+    /**
+     * Get pinterest
+     *
+     * @return string
+     */
+    public function getPinterest()
+    {
+        return $this->pinterest;
+    }
+
+    /**
+     * Set googleplus
+     *
+     * @param string $googleplus
+     *
+     * @return Legal
+     */
+    public function setGoogleplus($googleplus)
+    {
+        $this->googleplus = $googleplus;
+
+        return $this;
+    }
+
+    /**
+     * Get googleplus
+     *
+     * @return string
+     */
+    public function getGoogleplus()
+    {
+        return $this->googleplus;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Legal
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
 
     /**
      * Set returnWorkText

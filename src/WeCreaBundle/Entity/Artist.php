@@ -39,6 +39,13 @@ class Artist
      */
     private $images;
 
+
+
+    /**
+     * @var string
+     */
+    private $slug;
+
     /**
      * Constructor
      */
@@ -225,5 +232,29 @@ class Artist
     public function getBiography()
     {
         return $this->biography;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Realisation
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

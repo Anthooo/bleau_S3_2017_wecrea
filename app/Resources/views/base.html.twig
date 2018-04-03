@@ -2,14 +2,16 @@
     <html lang="fr">
     <head>
         <meta charset="UTF-8" />
+        <title>{% block title %}Les Artistes d'abord - Galerie d'art en ligne{% endblock %}</title>
+        <meta name="description" content="Les artistes d'abord | Œuvres d’Art, Artistes émergents et reconnus sur notre Galerie d’Art en ligne.">
+        <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta name="description" content="Les artistes d'abord">
         <meta name="copyright" content="Fabien Dauvergne && Florent Alemany, Wild Code School Fontainebleau"/>
-        <title>{% block title %}Les Artistes d'abord{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/wecrea/pics/favicon.ico') }}" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('bundles/wecrea/css/style.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
@@ -28,6 +30,11 @@
         <script type="text/javascript" src='{{ asset('bundles/wecrea/vendor/jquery.elevateZoom-3.0.8.min.js') }}'></script>
     {% endif %}
     {#<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>#}
+    <script
+            type="text/javascript"
+            async defer
+            src="//assets.pinterest.com/js/pinit.js"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>

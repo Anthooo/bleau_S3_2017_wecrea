@@ -177,16 +177,16 @@ nav ul a:hover {
 }
 
 .side-nav-custom{
-	height: 100%;
+    height: 100%;
 }
 
 .side-nav-custom li{
-	height: 60px!important;
-	margin: 0;
+    height: 60px!important;
+    margin: 0;
 }
 
 .side-nav-custom li:first-child{
-	margin: 30px 0 0 0;
+    margin: 30px 0 0 0;
 }
 
 #profil_iconprofil_icon {
@@ -322,12 +322,16 @@ textarea{
     align-content: center;
     color: black!important;
     background-color: rgba(255, 255, 255, 1);
-    position: absolute;
+    position: static;
     bottom: 60px;
 }
 
 .container_footer a {
-    color: black!important;
+    color: black;
+}
+
+.container_footer a:hover {
+    color: #47579E !important;
 }
 
 .footer-copyright {
@@ -337,11 +341,44 @@ textarea{
 .moreLink {
     color: black!important;
     cursor: pointer;
+    font-size: 16px;
 }
+
+.moreLink2 {
+    color: #1FBCD3!important;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+/* icone login admin */
+.moreLink3 {
+    color: dimgrey!important;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 0.2em;
+}
+
+/* icone logout admin */
+.moreLink4 {
+    color: red!important;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 0.2em;
+}
+
 
 #moreLink {
     color: black!important;
     cursor: pointer;
+}
+
+.phone {
+    margin-left: 5px;
+}
+
+.phoneicn {
+    width: 7%;
+    vertical-align: sub;
 }
 
 .logo_container{
@@ -351,7 +388,7 @@ textarea{
 }
 
 .button-collapse-custom{
-	display: none;
+    display: none;
 }
 
 .bar_footer {
@@ -373,7 +410,7 @@ footer {
     padding-top: 0 !important;
     background: transparent!important;
     color: black!important;
-    position: relative;
+    /*position: relative;*/
 }
 
 .row_custom {
@@ -385,6 +422,8 @@ footer {
     margin-top: 20px;
 }
 
+
+/* CAROUSEL */
 .slider {
     margin-top: 112px;
     height: calc(100% - 178px) !important;
@@ -417,6 +456,7 @@ footer {
     bottom: 10px!important;
 }
 
+
 .caption_custom {
     text-shadow: -1px 0 #080808, 0 1px #080808, 1px 0 #080808, 0 -1px #080808;
     top: 50% !important;
@@ -434,6 +474,8 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* fin carousel */
 
 /* WORKS CLIENT */
 
@@ -492,6 +534,12 @@ footer {
 .sold img {
     max-width: 50px;
     max-height: 50px;
+}
+
+.nomArtiste {
+    font-style: italic;
+    text-align: right;
+    margin-top: 0;
 }
 
 .work_desc{
@@ -714,6 +762,11 @@ footer {
 
 /* Artist list pages */
 
+.container-custom-artists {
+    margin-left: 200px;
+    margin-right: 50px;
+}
+
 .container-custom-artists,
 .container-custom-search{
     margin-top: 75px;
@@ -823,6 +876,11 @@ form[name="basket"] {
     right: 10px;
     cursor: pointer;
 }
+
+#cgvred {
+    color: red;
+    font-size: medium;
+}
 /* ----- Concept page ----- */
 
 #concept img {
@@ -839,11 +897,18 @@ form[name="basket"] {
 }
 /********** ACTU PAGE ***********/
 
+#actu {
+    top: 100%;
+    position: absolute;
+}
+
+
 .actu-user{
-    width: 70%;
+    width:100%;
     margin: 0 auto 15px auto;
     padding: 5px;
     border: 1px solid #c8c8c8;
+    height: 100%;
 }
 
 #title-actu{
@@ -854,11 +919,11 @@ form[name="basket"] {
     height: 80px;
 }
 
-.figure-no-zoom{
+.figure-no-zoom {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 300px;
+    max-height: 300px;
     overflow: hidden;
 }
 
@@ -899,15 +964,27 @@ form[name="basket"] {
 
 .actu-user .content{
     margin-bottom: 20px;
+    padding: 24px 5px !important;
 }
 
-.actu-user i{
-    background: #eee;
-    display: block;
-    width: 100%;
+.actuShare {
+    background: #eee !important;
+    border-top: none !important;
+    padding: 5px 15px !important;
     text-align: right;
-    padding-right: 10px;
 }
+
+.publish {
+    font-style: italic;
+}
+
+/*.actu-user i{*/
+    /*background: #eee;*/
+    /*display: block;*/
+    /*width: 100%;*/
+    /*text-align: right;*/
+    /*padding-right: 10px;*/
+/*}*/
 
 @media all and (max-width: 1024px){
     .actu-user {
@@ -968,10 +1045,10 @@ form[name="search"] {
 }
 
 @media all and (max-width: 992px){
-	.button-collapse-custom{
-		 display: flex!important;
-		 align-items: center!important;
-	}
+    .button-collapse-custom{
+        display: flex!important;
+        align-items: center!important;
+    }
 
     form[name="search"]{
         display: flex;
@@ -999,8 +1076,8 @@ nav ul li .suggest {
 }
 
 nav ul li .suggest li{
-	height: 35px!important;
-	line-height: 35px;
+    height: 35px!important;
+    line-height: 35px;
 }
 
 #mobile-demo li:first-child{
@@ -1026,8 +1103,8 @@ nav ul li .suggest li{
 
 #mobile-demo #profil_icon a:nth-child(2){
 
-     padding-top: 5px;
-     height: auto!important;
+    padding-top: 5px;
+    height: auto!important;
 }
 
 #mobile-demo li:last-child a:nth-child(3){
@@ -1109,6 +1186,84 @@ nav ul li .suggest li{
     }
 }
 
+.titreActu {
+    color: black;
+    text-align: center;
+    font-size: 2.28rem;
+    line-height: 110%;
+    margin: 1.14rem 0 .912rem 0;
+    font-weight: 700;
+}
+
+.titreWork {
+    font-size: 1.8rem;
+    line-height: 110%;
+    margin: 1.14rem 0 .912rem 0;
+    border-bottom: 1px solid black;
+    padding-bottom: 6px;
+    text-align: center;
+    font-weight: inherit;
+}
+
+.titreArtiste {
+    font-size: 3.56rem;
+    line-height: 110%;
+    margin: 1.78rem 0 1.424rem 0;
+    font-weight: inherit;
+    text-align: center;
+}
+
+.artistName {
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.share {
+    padding-top: 10px;
+    margin-right: 5px;
+    font-size: smaller;
+}
+
+.shareBtn, .shareBtn a {
+    color: RGBA(0,0,0,0.5);
+}
+
+.shareTxt {
+    font-style: italic;
+    font-size: smaller;
+    margin-right: 5px;
+}
+
+.fa-facebook-square:hover {
+    color: RGBA(68, 104, 176, 1.00);
+}
+
+.fa-twitter-square:hover {
+    color: RGBA(77, 171, 228, 1.00);
+}
+
+.fa-google-plus-square:hover {
+    color: RGBA(221, 95, 89, 1.00);
+}
+
+.fa-pinterest-square:hover {
+    color: RGBA(168, 39, 45, 1.00);
+    cursor: pointer;
+}
+
+.titreConcept {
+    font-size: 3.56rem;
+    line-height: 110%;
+    margin: 1.78rem 0 1.424rem 0;
+}
+
+.titreCarrousel {
+    font-size: 2.92rem;
+    line-height: 110%;
+    margin: 1.46rem 0 1.168rem 0;
+}
+
 /* Admin sections titles */
 h4{
     color: #fff;
@@ -1149,13 +1304,13 @@ h4{
 }
 
 
-.actu-content{
-    background: rgba(255,255,255,.7);
-    background: #fcfcfc;
-    border: 1px solid #c8c8c8;
-    padding: 10px;
-    margin: 10px 0;
-}
+/*.actu-content{*/
+    /*background: rgba(255,255,255,.7);*/
+    /*background: #fcfcfc;*/
+    /*border: 1px solid #c8c8c8;*/
+    /*padding: 10px;*/
+    /*margin: 10px 0;*/
+/*}*/
 
 .actu-number{
     height: 50px;
@@ -1163,4 +1318,18 @@ h4{
     background: black;
     text-align: center;
     color: #fff;
+}
+
+.basket_badge {
+    /*background-color: #F8EA60;*/
+    /*border-radius: 10px;*/
+    /*color: black;*/
+    /*display: inline-block;*/
+    font-size: 10px;
+    font-weight: bolder;
+    /*line-height: 1;*/
+    /*padding: 3px 7px;*/
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+    /*white-space: nowrap;*/
 }

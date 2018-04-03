@@ -22,11 +22,14 @@ $(document).ready( function () {
 
     showFormUserProfil();
 
-    $(window).resize(function () {
-        cardResize();
-    });
+    // $(window).resize(function () {
+    //     cardResize();
+    // });
 
 
+    //
+    // Carousel
+    //
     $('.slider').slider({
         'transition': 300,
         'interval' : 3000

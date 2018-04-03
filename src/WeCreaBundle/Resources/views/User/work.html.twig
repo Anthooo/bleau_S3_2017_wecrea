@@ -1,5 +1,6 @@
 {% extends '@WeCrea/layout/base_client.html.twig' %}
 
+{% block title %}{{ work.title }} par {{ work.artist.firstname }} {{ work.artist.name }} - Les Artistes d'abord{% endblock %}
 {% block stylesheets %}
 
     {{ parent() }}
@@ -13,23 +14,10 @@
 
         <div class="container">
             <div class="row row_top">
-                <h3
-                        style="
-                            font-size: 1.8rem;
-                            line-height: 110%;
-                            margin: 1.14rem 0 .912rem 0;
-                            border-bottom: 1px solid black;
-                            padding-bottom: 6px;
-                            text-align: center;
-                        "
-                >{{ work.title }}</h3>
-                <p
-                        style="
-                            font-style: italic;
-                            text-align: right;
-                            margin-top: 0;
-                        ">
-                    {{ work.artist.firstname }} {{ work.artist.name }}</p>
+                <h1 class="titreWork">{{ work.title }}</h1>
+                <div class="nomArtiste">
+                    {{ work.artist.firstname }} {{ work.artist.name }}
+                </div>
             </div>
             <div class="row">
                 <div class="col s12 m12 l8 img_basket">
@@ -94,7 +82,7 @@
                                 style="margin-top: 10px;"
                                 class="row center-align">
                             {% if caracts[0].quantity <= 0 %}
-                                <input type="submit" class="btn black disabled" value="Épuisé">
+                                <input type="submit" class="btn black disabled" value="Vendu">
                             {% else %}
                                 <input type="submit" class="btn black" value="Ajouter au panier">
                             {% endif %}
@@ -102,6 +90,22 @@
                     </form>
                     <p style="font-size: 16px;"><i>Livraison sous {{ work.timelimit }} jours ouvrés</i></p>
                     <p style="font-size: 16px;"><i>{{ returnWorkText }}</i></p>
+
+                    <div class="shareBtn right">
+                        <span class="shareTxt">Partager :</span>
+                        <a href="http://www.facebook.com/sharer.php?u={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_work', { 'id': work.id }) }}&p[title]={{ work.title }} par {{ work.artist.firstname }} {{ work.artist.name }}" target="_blank">
+                            <i class="fab fa-facebook-square share"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?text={{ work.title }}%20par%20{{ work.artist.firstname }}%20{{ work.artist.name }}%20%7C%20Les%20Artistes%20d&#39abord&url={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_work', { 'id': work.id }) }}&hashtags=lesartistesdabord" target="_blank">
+                            <i class="fab fa-twitter-square share"></i>
+                        </a>
+                        <a href="https://plus.google.com/share?url={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_work', { 'id': work.id }) }}" target="_blank">
+                            <i class="fab fa-google-plus-square share"></i>
+                        </a>
+                        <a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ app.request.getSchemeAndHttpHost()}}{{ path('we_crea_work', { 'id': work.id }) }}&description={{ work.title }} par {{ work.artist.firstname }} {{ work.artist.name }} - {{ work.artist.expertise }}" data-pin-custom="true">
+                            <i class="fab fa-pinterest-square share"></i>
+                        </a>
+                    </div>
 
                 </div>
 

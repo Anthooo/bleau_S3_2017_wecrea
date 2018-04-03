@@ -20,6 +20,17 @@ WeCreaBundle\Entity\Artist:
             length: 255
         biography:
             type: text
+        slug:
+            type: string
+            length: 128
+            gedmo:
+              slug:
+                suffix: .html
+                fields:
+                  - firstname
+                  - name
+
+
 
     manyToMany:
         images:

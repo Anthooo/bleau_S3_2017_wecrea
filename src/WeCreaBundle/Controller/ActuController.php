@@ -52,6 +52,7 @@ class ActuController extends Controller {
 
             $date = new \DateTime();
             $actu->setDate($date);
+            $actu->setContent($request->request->get("content"));
 
             $em->persist($actu);
             $em->flush();
