@@ -19,6 +19,9 @@
                                 <div class="card-image waves-effect waves-block waves-light card-image_custom"
                                         {% if work.images[0] is defined %}
                                             style="background: url('{{ asset("images/" ~ work.images[0].url) }}') center / cover"
+                                            {% else %}
+                                                style="background: url('{{ asset('bundles/wecrea/pics/no_picture.png' ) }}') center / cover"
+
                                         {% endif %}>
                                     {% if favs[work.id] is defined %}
                                         <div class="fav_btn_delete" data="{{ work.id }}">
