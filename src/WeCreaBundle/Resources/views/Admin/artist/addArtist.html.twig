@@ -33,7 +33,7 @@
                     {{ form_widget(form.biography, {'attr': {'class':'biography materialize-textarea'}} ) }}
                 </div>
                 <div class="input-field col s12">
-                    {{ form_widget(form.publication) }}
+                    {{ form_widget(form.publication, {'attr' : { 'checked' : 'checked' }}) }}
                     {{ form_label(form.publication, 'Publié') }}
                     {{ form_errors(form.publication) }}
 

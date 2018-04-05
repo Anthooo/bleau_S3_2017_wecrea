@@ -132,6 +132,7 @@ class ArtistController extends Controller
 
             if (isset($newArtist)) {
                 $formArtist->handleRequest($request);
+
                 $em->persist($artist);
             }
             if (isset($newArtistImage)) {

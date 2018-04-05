@@ -22,6 +22,7 @@ WeCreaBundle\Entity\Artist:
             type: text
         publication:
             type: boolean
+            nullable: true
         slug:
             type: string
             length: 128

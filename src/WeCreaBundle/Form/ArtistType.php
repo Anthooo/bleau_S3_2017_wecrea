@@ -23,7 +23,8 @@ class ArtistType extends AbstractType
             ->add('name')
             ->add('firstname')
             ->add('expertise')
-            ->add('publication', CheckboxType::class)
+            ->add('publication', CheckboxType::class, array(
+                'required' => false))
             ->add('biography');
 
     }
