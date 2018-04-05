@@ -5,6 +5,7 @@ namespace WeCreaBundle\Form;
 use Doctrine\Common\Collections\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -22,7 +23,10 @@ class ArtistType extends AbstractType
             ->add('name')
             ->add('firstname')
             ->add('expertise')
+            ->add('publication', CheckboxType::class, array(
+                'required' => false))
             ->add('biography');
+
     }
     
     /**

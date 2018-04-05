@@ -46,15 +46,6 @@
             >
                 <div class="col l4 m12 s12" style="padding: 0;">
                     <a href="https://wildcodeschool.fr/" class="moreLink" style="font-size: small">© 2017 Copyright WCS & We-Crea</a>
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <a class="moreLink4" href="{{ path('fos_user_security_logout') }}">
-                            <i class="fas fa-sign-out-alt"></i>
-                        </a>
-                    {% else %}
-                        <a class="moreLink3" href="{{ path('we_crea_admin_homepage') }}">
-                            <i class="fas fa-key"></i>
-                        </a>
-                    {% endif %}
                 </div>
                 <div class="col l4 m3 s12" style="padding: 0;">
                     <a id="moreLink">Contactez-nous</a>
@@ -79,9 +70,6 @@
                         <a class="moreLink" href="{{ footer.youtube }}" target="_blank"><img src="{{ asset('bundles/wecrea/pics/youtube.png') }}" alt="Youtube" title="Youtube"></a>
                     {% endif %}
                 </div>
-                {#<div class="col l3 m4 s12" style="padding: 0;">#}
-                {#<a class="moreLink" href="http://www.lesjeuxdedames.com/">Les Jeux de Dames</a>#}
-                {#</div>#}
             </div>
         </div>
     </div>
@@ -140,4 +128,5 @@
         'width' : '100vw'
     });
     {% endif %}
+    
 </script>

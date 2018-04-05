@@ -20,6 +20,9 @@ WeCreaBundle\Entity\Artist:
             length: 255
         biography:
             type: text
+        publication:
+            type: boolean
+            nullable: true
         slug:
             type: string
             length: 128

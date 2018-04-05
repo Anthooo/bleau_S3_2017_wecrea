@@ -11,51 +11,53 @@ use Doctrine\ORM\Query;
  */
 class WorkRepository extends \Doctrine\ORM\EntityRepository
 {
-	/**
-	 * Get work title by workId
-	 * @return mixed
-	 */
-	public function getWorkTitle($workId)
-	{
-		return $this
-			->createQueryBuilder('w')
-			->select('w.title')
-			->where('w.id = :workId')
-			->setParameter('workId', $workId)
-			->getQuery()
-			->getSingleScalarResult();
-	}
-
-	/**
-	 * Get all works and order by artist name
-	 */
-    public function getAllWorks()
+    /**
+     * Get work title by workId
+     * @return mixed
+     */
+    public function getWorkTitle($workId)
     {
-		$qb = $this->createQueryBuilder('w');
-		$qb->select('w')
-			->join('w.artist', 'a')
-			->orderBy('a.name', 'asc')
-		;
-
-		return $qb->getQuery()->getResult();
+        return $this
+            ->createQueryBuilder('w')
+            ->select('w.title')
+            ->where('w.id = :workId')
+            ->setParameter('workId', $workId)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 
-	/**
-	 *
-	 * @param $nature String
-	 * @return array
-	 */
+    /**
+     * Get all works and order by artist name
+     */
+    public function getAllWorks()
+    {
+        $qb = $this->createQueryBuilder('w');
+        $qb->select('w')
+            ->join('w.artist', 'a')
+            ->orderBy('a.name', 'asc')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     *
+     * @param $nature String
+     * @return array
+     */
     public function getWorkByNature(String $nature)
     {
-    	$qb = $this->createQueryBuilder('w');
-    	$qb->select('w')
-		    ->join('w.nature', 'n')
-		    ->where('n.name = :name')
-		    ->setParameter('name', $nature)
-	        ->orderBy('w.id', 'DESC')
-	    ;
+        $qb = $this->createQueryBuilder('w');
+        $qb->select('w')
+            ->join('w.artist', 'a')
+            ->join('w.nature', 'n')
+            ->where('a.publication = 1')
+            ->andWhere('n.name = :name')
+            ->setParameter('name', $nature)
+            ->orderBy('w.id', 'DESC')
+        ;
 
-    	return $qb->getQuery()->getResult();
+        return $qb->getQuery()->getResult();
     }
 
 
@@ -63,10 +65,12 @@ class WorkRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('w')
             ->select('w.id')
             ->join('w.nature', 'n')
-            ->where('REGEXP(w.title, :regexp) = true')
+            ->join('w.artist', 'a')
+            ->andWhere('REGEXP(w.title, :regexp) = true')
             ->orWhere('REGEXP(w.description, :regexp) = true')
             ->orWhere('REGEXP(w.technic, :regexp) = true')
             ->orWhere('REGEXP(n.name, :regexp) = true')
+            ->andWhere('a.publication = 1')
             ->setParameter('regexp', $exp);
 
         return $qb->getQuery()->getResult();
@@ -78,14 +82,14 @@ class WorkRepository extends \Doctrine\ORM\EntityRepository
             ->join('w.artist', 'a')
             ->where('REGEXP(a.name, :regexp) = true')
             ->orWhere('REGEXP(a.firstname, :regexp) = true')
+            ->andWhere('a.publication = 1')
             ->setParameter('regexp', $exp);
-
         return $qb->getQuery()->getResult();
     }
 
     public function myFindWorksByIds(array $ids){
         $qb = $this->createQueryBuilder('w')
-        ->select('w.title');
+            ->select('w.title');
         $qb->add('where', $qb->expr()->in('w.id', '?1'))
             ->setParameter('1', $ids)
             ->orderBy('w.title');
@@ -126,7 +130,7 @@ class WorkRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('a.name = :artist')
             ->setParameter('artist', $artist);
 
-            $qb->join('w.caracts', 'c')
+        $qb->join('w.caracts', 'c')
             ->select('c.quantity')
             ->andWhere('c.dimension = :caract')
             ->setParameter('caract', $caract);

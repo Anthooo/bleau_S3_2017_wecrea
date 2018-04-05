@@ -10,11 +10,21 @@ namespace WeCreaBundle\Repository;
  */
 class ArtistRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function listArtists()
+    {
+        return $this->createQueryBuilder("a")
+            ->where("a.publication = 1")
+            ->getQuery()
+            ->getResult();
+    }
+
     /* If no suggestion received as search */
     public function myFindProfilByNameOrFirstname($exp)
     {
         $qb = $this->_em
-            ->createQuery('SELECT a.id, a.name, a.firstname FROM WeCreaBundle:Artist a WHERE REGEXP(a.name, :regexp) = true OR REGEXP(a.firstname, :regexp) = true')
+            /*->createQuery('SELECT a.id, a.name, a.firstname FROM WeCreaBundle:Artist a WHERE REGEXP(a.name, :regexp) = true OR REGEXP(a.firstname, :regexp) = true')*/
+            ->createQuery('SELECT a.id, a.name, a.firstname FROM WeCreaBundle:Artist a WHERE a.publication = 1 AND (REGEXP(a.name, :regexp) = true OR REGEXP(a.firstname, :regexp) = true)')
+
             ->setParameter('regexp', $exp);
 
         return $qb->getResult();
@@ -24,7 +34,9 @@ class ArtistRepository extends \Doctrine\ORM\EntityRepository
     public function myFindProfilByNameAndFirstName($exp)
     {
         $qb = $this->_em
-            ->createQuery('SELECT a.id, a.name, a.firstname FROM WeCreaBundle:Artist a WHERE REGEXP(a.name, :regexp) = true OR REGEXP(a.firstname, :regexp) = true')
+            /*->createQuery('SELECT a.id, a.name, a.firstname FROM WeCreaBundle:Artist a WHERE REGEXP(a.name, :regexp) = true OR REGEXP(a.firstname, :regexp) = true')*/
+            ->createQuery('SELECT a.id, a.name, a.firstname FROM WeCreaBundle:Artist a WHERE a.publication = 1 AND REGEXP(a.name, :regexp) = true OR REGEXP(a.firstname, :regexp) = true')
+
             ->setParameters(array('regexp' => $exp[0], 'regexp' => $exp[1]));
 
         return $qb->getResult();
@@ -41,3 +53,4 @@ class ArtistRepository extends \Doctrine\ORM\EntityRepository
     }
 
 }
+
