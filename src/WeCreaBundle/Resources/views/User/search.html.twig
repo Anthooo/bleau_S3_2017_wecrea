@@ -38,7 +38,7 @@
                                 <span class="card-title activator grey-text text-darken-4">{{ work.title }}<i class="material-icons right">more_vert</i></span>
                                 {#<span class="card-title activator grey-text text-darken-4 title">{{ work.title }}#}
                                     {#<img class="show_more activator" src="{{ asset('bundles/wecrea/pics/Picto-4.png') }}" alt="voir plus"></span>#}
-                                <p><a href="{{ path('we_crea_artist', {id : work.artist.id, slug : work.artist.slug} ) }}" class="artist">{{ work.artist.name }}</a></p>
+                                <p><a href="{{ path('we_crea_artist', {id : work.artist.id, slug : work.artist.slug} ) }}" class="artist">{{ work.artist.firstname }} {{ work.artist.name }}</a></p>
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">{{ work.title }}<i class="material-icons right">close</i></span>
