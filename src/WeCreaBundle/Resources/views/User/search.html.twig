@@ -3,50 +3,57 @@
 {% block body %}
     <main>
         <div class="container container-custom-search">
+
+            {% if artists is defined or works is defined %}
             <div class="row">
-                {% if artists is defined or works is defined %}
-                    Résultats pour : <b>{{ exp|upper }}</b>
+                Résultats pour : <b>{{ exp|upper }}</b>
                 {% endif %}
+
                 {% if works is defined %}
-                    <h4>Oeuvres correspondantes</h4>
-                    <div class="cards">
-                        {% for work in works %}
-                            <div class="card card_custom_work iso_item">
-                                <a href="{{ path('we_crea_work', {'id' : work.id}) }}">
-                                    <div class="card-image waves-effect waves-block waves-light card-image_custom"
-                                            {% if work.images[0] is defined %}
-                                                style="background: url('{{ asset("images/" ~ work.images[0].url) }}') center / cover"
-                                            {% endif %}
-                                    >
-                                        {% if favs[work.id] is defined %}
-                                            <div class="fav_btn_delete" data="{{ work.id }}">
-                                                <button class="btn">Retirer des favoris</button>
-                                            </div>
-                                        {% else %}
-                                            <div class="fav_btn" data="{{ work.id }}">
-                                                <button class="btn">Ajouter aux favoris</button>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                </a>
-                                <div class="card-content card-content_custom">
-                                <span class="card-title activator grey-text text-darken-4 title">{{ work.title }}
-                                    <img class="show_more activator" src="{{ asset('bundles/wecrea/pics/Picto-4.png') }}" alt="voir plus"></span>
-                                    <p><a href="{{ path('we_crea_artist', {id : work.artist.id, slug : work.artist.slug} ) }}" class="artist">{{ work.artist.name }}</a></p>
+                <h4 class="black-text">Oeuvres correspondantes</h4>
+                {#<div class="cards">#}
+                {% for work in works %}
+                    <div class="col s12 m4">
+                        <div class="card small">
+                            <a href="{{ path('we_crea_work', {'id' : work.id}) }}">
+                                <div class="card-image waves-effect waves-block waves-light card-image_custom"
+                                        {% if work.images[0] is defined %}
+                                            style="background: url('{{ asset("images/" ~ work.images[0].url) }}') center / cover"
+                                        {% endif %}>
+                                    {% if favs[work.id] is defined %}
+                                        <div class="fav_btn_delete" data="{{ work.id }}">
+                                            <button class="btn">Retirer des favoris</button>
+                                        </div>
+                                    {% else %}
+                                        <div class="fav_btn" data="{{ work.id }}">
+                                            <button class="btn">Ajouter aux favoris</button>
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">{{ work.title }}<i class="material-icons right">close</i></span>
-                                    <p>{{ work.technic }} {{ work.nature.name }}</p>
-                                </div>
+                            </a>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{ work.title }}<i class="material-icons right">more_vert</i></span>
+                                {#<span class="card-title activator grey-text text-darken-4 title">{{ work.title }}#}
+                                    {#<img class="show_more activator" src="{{ asset('bundles/wecrea/pics/Picto-4.png') }}" alt="voir plus"></span>#}
+                                <p><a href="{{ path('we_crea_artist', {id : work.artist.id, slug : work.artist.slug} ) }}" class="artist">{{ work.artist.name }}</a></p>
                             </div>
-                        {% endfor %}
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{ work.title }}<i class="material-icons right">close</i></span>
+                                <p>{{ work.technic }} {{ work.nature.name }}</p>
+                            </div>
+                        </div>
                     </div>
-                {% endif %}
-                {% if artists is defined %}
-                    <h4>Artistes correspondants</h4>
-                    <div class="cards">
-                        {% for artist in artists %}
-                            <div class="card card_custom_artist iso_item ">
+
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if artists is defined %}
+                <div class="row">
+                    <h4 class="black-text">Artistes correspondants</h4>
+                    {#<div class="cards">#}
+                    {% for artist in artists %}
+                        <div class="col s12 m4">
+                            <div class="card small">
                                 {% if artist.images|first != false %}
                                     <a href="{{ path('we_crea_artist', {id : artist.id, slug : artist.slug} ) }}">
                                         <div class="card-image waves-effect waves-block waves-light card-image_custom" style="background: url(' {{ asset('images/'~artist.images|first.url ) }} ') center / cover ">
@@ -54,14 +61,16 @@
                                     </a>
                                 {% else %}
                                     <a href="{{ path('we_crea_artist', {id : artist.id, slug : artist.slug} ) }}">
-                                        <div class="card-image waves-effect waves-block waves-light card-image_custom" style="background: url(' {{ asset('images/soap.jpg' ) }} ') center / cover ">
+                                        <div class="card-image waves-effect waves-block waves-light card-image_custom" style="background: url('{{ asset('bundles/wecrea/pics/Logo.jpg' ) }}') center / cover; width: 100%">
                                         </div>
                                     </a>
                                 {% endif %}
-                                <div class="card-content card-content_custom">
-                            <span class="card-title activator grey-text text-darken-4 title">{{ artist.firstname }} {{ artist.name }}
-                                <img class="show_more activator" src="{{ asset('bundles/wecrea/pics/Picto-4.png') }}" alt="voir plus">
-                            </span>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">{{ artist.firstname }} {{ artist.name }}<i class="material-icons right">more_vert</i></span>
+
+                                    {#<span class="card-title activator grey-text text-darken-4 title">{{ artist.firstname }} {{ artist.name }}#}
+                                {#<img class="show_more activator" src="{{ asset('bundles/wecrea/pics/Picto-4.png') }}" alt="voir plus">#}
+                            {#</span>#}
                                 </div>
                                 <div class="card-reveal">
                                     <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
@@ -69,13 +78,14 @@
                                     <a href="{{ path('we_crea_artist', {'id' : artist.id, slug : artist.slug} ) }}"> Accéder au profil </a>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                {% if artists is not defined and works is not defined %}
-                    <b>{{ response }}</b>
-                {% endif %}
-            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if artists is not defined and works is not defined %}
+                <b>{{ response }}</b>
+            {% endif %}
         </div>
     </main>
 {% endblock %}
