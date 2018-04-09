@@ -14,6 +14,7 @@ class ArtistRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->createQueryBuilder("a")
             ->where("a.publication = 1")
+            ->orderBy("a.name")
             ->getQuery()
             ->getResult();
     }
