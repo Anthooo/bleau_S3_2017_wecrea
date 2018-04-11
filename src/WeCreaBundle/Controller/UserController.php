@@ -96,6 +96,7 @@ class UserController extends Controller
 
         if ($nature !== 'Tous' && $nature !== null) {
             $works = $em->getRepository('WeCreaBundle:Work')->getWorkByNature($nature);
+            shuffle($works);
             foreach ($works as $work){
                 $nb = 0;
                 foreach ($work->getCaracts() as $caract){
